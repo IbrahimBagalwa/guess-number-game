@@ -18,7 +18,7 @@ Unleash your inner riddler with our vast collection of unlimited riddles! Challe
 
 ### Links
 
-- Live: [Guess Number]()
+- Live: [Guess Number](https://sparkling-swan-c258aa.netlify.app/)
 
 ### Built with
 
