@@ -14,7 +14,7 @@ Unleash your inner riddler with our vast collection of unlimited riddles! Challe
 
 ### Screenshot
 
-![Guess-Game]()
+![Guess-Game](./assets/guessNumber.PNG)
 
 ### Links
 
@@ -22,9 +22,9 @@ Unleash your inner riddler with our vast collection of unlimited riddles! Challe
 
 ### Built with
 
-- React
-- Redux
-- Firebase
+- HTML
+- CSS
+- JavaScript
 
 ## Author
 
