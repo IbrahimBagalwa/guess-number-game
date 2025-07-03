@@ -8,7 +8,17 @@
   src: url('/assets/Montserrat.ttf');
 }
 
-/* Custom animations */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Sofia Pro Black', sans-serif;
+}
 @keyframes bounce-in {
   0% {
     opacity: 0;
@@ -35,7 +45,6 @@
   }
 }
 
-/* Tailwind plugin classes */
 .bounce-in {
   animation: bounce-in 1.2s forwards;
 }
@@ -56,6 +65,7 @@
   height: 166px;
   background: url('/assets/lockBase.png') center no-repeat;
 }
+
 .continue-button {
   width: 200px;
   height: 40px;
@@ -85,5 +95,5 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 input[type='number'] {
-  -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield;
 }

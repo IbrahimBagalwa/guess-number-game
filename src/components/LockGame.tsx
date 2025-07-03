@@ -379,13 +379,13 @@ const LockGame = () => {
   }, [generateNew])
 
   return (
-    <div className='flex flex-col items-center justify-between min-h-screen w-full bg-[#262626] text-white font-sofia'>
+    <div className='flex flex-col items-center justify-between h-screen w-full bg-[#262626] text-white'>
       <div className='intro-overlay'>
         <h1 className='text-[48px]'>GUESS THE NUMBER</h1>
         <span>By Ibrahim Bagalwa</span>
       </div>
 
-      <div className='w-full text-center bg-[#1b1b1b] py-5 text-[32px]'>
+      <div className='w-full text-center bg-[#1b1b1b] py-5 md:text-4xl text-md'>
         {header}
       </div>
 
