@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+@font-face {
+  font-family: 'Sofia Pro Black';
+  src: url('/assets/sofiaProBlack.otf');
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/Montserrat.ttf');
+}
+
+/* Custom animations */
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes intro-fade-out {
+  0%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Tailwind plugin classes */
+.bounce-in {
+  animation: bounce-in 1.2s forwards;
+}
+.intro-overlay {
+  @apply fixed top-0 left-0 w-full h-full z-50 flex flex-col justify-center items-center text-center bg-[#000000b3] backdrop-blur-[6px] opacity-0 pointer-events-none animate-[intro-fade-out_2.5s_forwards];
+}
+.lock-animation {
+  width: 260px;
+  height: 300px;
+  background: url('/assets/lockTop.png') center no-repeat;
+  transition: background-position 0.4s;
+}
+.lock-animation.lock-unlocked {
+  background-position: center -32px;
+}
+.lock-base {
+  width: 260px;
+  height: 166px;
+  background: url('/assets/lockBase.png') center no-repeat;
+}
+.continue-button {
+  width: 200px;
+  height: 40px;
+  background-color: #9fc805;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 5px #718e04;
+  text-shadow: 0px 2px 2px #718e04;
+  transition: 0.2s;
+}
+.continue-button:hover {
+  cursor: pointer;
+  transform: translateY(5px);
+  box-shadow: 0px 0px #718e04;
+}
+.footer {
+  font-size: 12px;
+  color: gray;
+  letter-spacing: 2px;
+  padding-bottom: 10px;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
+}
