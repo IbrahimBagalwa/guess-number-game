@@ -1,69 +1,41 @@
-# React + TypeScript + Vite
+# Guess number Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Welcome! 👋
 
-Currently, two official plugins are available:
+Unleash your inner riddler with our vast collection of unlimited riddles! Challenge your wit and unravel the mysteries hidden within these brain-teasers. From mind-bending conundrums to clever wordplay, each riddle is meticulously crafted to keep you engaged and entertained. So, put on your thinking cap, flex those mental muscles, and click below to reveal the answer... if you dare!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Content
 
-## Expanding the ESLint configuration
+- [Screenshot](#screenshot)
+- [Links](#links)
+- [Built with](#built-with)
+- [Author](#author)
+- [Contact Us](#contact-Us)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Screenshot
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+![Guess-Game](./public//assets/guessNumber.PNG)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Links
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Live: [Guess Number]()
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Built with
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- React
+- Tailwind CSS
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Author
+
+- Ibrahim Bagalwa - [@ibrahim_Bagalwa](https://twitter.com/ibrahim_Bagalwa)
+- LinkedIn - [ibrahim-bagalwa](https://www.linkedin.com/in/IbrahimBagalwa)
+
+## Contact Me
+
+<p align="left">
+
+[![Follow on Twitter](https://img.shields.io/badge/--twitter?label=Twitter&logo=Twitter&style=social)](https://twitter.com/ibrahim_Bagalwa) [![Connect on LinkedIn](https://img.shields.io/badge/--linkedin?label=LinkedIn&logo=LinkedIn&style=social)](https://www.linkedin.com/in/IbrahimBagalwa) [![Send me email](https://img.shields.io/badge/--gmail?label=Gmail&logo=Gmail&style=social)](mailto:bagmurhulaibrahim@gmail.com)
+
+---
+
+</p>
