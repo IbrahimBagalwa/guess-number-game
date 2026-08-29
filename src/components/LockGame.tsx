@@ -240,7 +240,7 @@ class PuzzleGenerator {
     Object.entries(hints).forEach(([hintKey, hintArray]) => {
       if (hintKey === 'nothingIsCorrect') return
 
-      hintArray.forEach((item, index) => {
+      hintArray.forEach((item: number, index: number) => {
         if (item === -1) {
           const hintType = this.getHintTypeFromKey(hintKey)
           if (hintType) {
@@ -375,9 +375,16 @@ const LockGame = () => {
       lockRef.current.classList.add(ANIMATION_CLASSES.LOCK_UNLOCKED)
     }
 
-    animateWithReflow(continueButtonRef, ANIMATION_CLASSES.BOUNCE_IN)
-    launchFlowers()
-    playVictorySound()
+    // Dismiss the mobile keyboard so the lock animation is visible
+    inputRefs.current.forEach((ref) => ref?.blur())
+
+    // Wait for keyboard to close, then scroll lock into view
+    setTimeout(() => {
+      lockRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      launchFlowers()
+      playVictorySound()
+      animateWithReflow(continueButtonRef, ANIMATION_CLASSES.BOUNCE_IN)
+    }, 300)
   }, [animateWithReflow])
 
   const handleCodeInput = useCallback(
@@ -418,13 +425,13 @@ const LockGame = () => {
   }, [generateNew])
 
   return (
-    <div className='flex flex-col items-center justify-between h-screen w-full bg-[#262626] text-white overflow-y-auto'>
+    <div className='flex flex-col items-center justify-between h-[100dvh] w-full bg-[#262626] text-white overflow-y-auto'>
       <div className='intro-overlay'>
         <h1 className='text-[clamp(28px,8vw,48px)]'>GUESS THE NUMBER</h1>
         <span>By Ibrahim Bagalwa</span>
       </div>
 
-      <div className='w-full text-center bg-[#1b1b1b] py-5 md:text-4xl text-md'>
+      <div className='w-full text-center bg-[#1b1b1b] py-5 md:text-4xl text-[10px]'>
         {header}
       </div>
 
@@ -443,6 +450,7 @@ const LockGame = () => {
               className='bg-[#472d04] w-[clamp(32px,12.5vw,45px)] h-[clamp(32px,12.5vw,45px)] text-[clamp(22px,9vw,40px)] text-center rounded-[5px] mx-1 shadow-[0_5px_#00000057] placeholder-white/20'
               onChange={(e) => handleCodeInput(i, e.target.value)}
               onKeyDown={handleKeyDown}
+              onFocus={(e) => e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' })}
               min={GAME_CONFIG.MIN_DIGIT}
               max={GAME_CONFIG.MAX_DIGIT}
               aria-label={`Code digit ${i + 1}`}
@@ -492,7 +500,7 @@ const LockGame = () => {
       </button>
 
       <footer
-        className='footer cursor-pointer mt-5'
+        className='footer cursor-pointer mt-2'
         onClick={revealAnswer}
         role='button'
         tabIndex={0}

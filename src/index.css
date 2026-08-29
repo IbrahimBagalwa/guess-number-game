@@ -85,7 +85,6 @@ h6 {
 .footer {
   font-size: 12px;
   color: gray;
-  letter-spacing: 2px;
   padding-bottom: 10px;
 }
 input[type='number']::-webkit-outer-spin-button,
