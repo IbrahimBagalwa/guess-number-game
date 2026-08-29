@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
+import confetti from 'canvas-confetti'
 
 interface HintData {
   twoCorrect: number[]
@@ -34,6 +35,42 @@ const ANIMATION_CLASSES = {
   LOCK_UNLOCKED: 'lock-unlocked',
   BOUNCE_IN: 'bounce-in',
 } as const
+
+function launchFlowers(): void {
+  const emojis = ['🌸', '🌺', '🌼', '🌻', '🌹']
+  const shapes = emojis.map((e) => confetti.shapeFromText({ text: e, scalar: 2 }))
+  const shared = { shapes, scalar: 2, gravity: 0.8, ticks: 300 }
+
+  confetti({ ...shared, particleCount: 50, spread: 80, origin: { x: 0.5, y: 0.5 } })
+
+  setTimeout(() => {
+    confetti({ ...shared, particleCount: 30, angle: 60, spread: 55, origin: { x: 0, y: 0.65 } })
+    confetti({ ...shared, particleCount: 30, angle: 120, spread: 55, origin: { x: 1, y: 0.65 } })
+  }, 300)
+}
+
+function playVictorySound(): void {
+  try {
+    const ctx = new AudioContext()
+    const notes = [523.25, 659.25, 783.99, 1046.5]
+    notes.forEach((freq, i) => {
+      const osc = ctx.createOscillator()
+      const gain = ctx.createGain()
+      osc.connect(gain)
+      gain.connect(ctx.destination)
+      osc.type = 'sine'
+      osc.frequency.value = freq
+      const start = ctx.currentTime + i * 0.12
+      gain.gain.setValueAtTime(0, start)
+      gain.gain.linearRampToValueAtTime(0.3, start + 0.05)
+      gain.gain.exponentialRampToValueAtTime(0.001, start + 0.5)
+      osc.start(start)
+      osc.stop(start + 0.5)
+    })
+  } catch {
+    // audio blocked or unsupported — fail silently
+  }
+}
 
 class PuzzleGenerator {
   private static getRandomInt(min: number, max: number): number {
@@ -339,6 +376,8 @@ const LockGame = () => {
     }
 
     animateWithReflow(continueButtonRef, ANIMATION_CLASSES.BOUNCE_IN)
+    launchFlowers()
+    playVictorySound()
   }, [animateWithReflow])
 
   const handleCodeInput = useCallback(
