@@ -52,18 +52,18 @@ h6 {
   @apply fixed top-0 left-0 w-full h-full z-50 flex flex-col justify-center items-center text-center bg-[#000000b3] backdrop-blur-[6px] opacity-0 pointer-events-none animate-[intro-fade-out_2.5s_forwards];
 }
 .lock-animation {
-  width: 260px;
-  height: 300px;
-  background: url('/assets/lockTop.png') center no-repeat;
+  width: clamp(160px, 55vw, 260px);
+  height: clamp(185px, 63.5vw, 300px);
+  background: url('/assets/lockTop.png') center / contain no-repeat;
   transition: background-position 0.4s;
 }
 .lock-animation.lock-unlocked {
-  background-position: center -32px;
+  background-position: center clamp(-32px, -6.77vw, -20px);
 }
 .lock-base {
-  width: 260px;
-  height: 166px;
-  background: url('/assets/lockBase.png') center no-repeat;
+  width: clamp(160px, 55vw, 260px);
+  height: clamp(102px, 35.1vw, 166px);
+  background: url('/assets/lockBase.png') center / contain no-repeat;
 }
 
 .continue-button {

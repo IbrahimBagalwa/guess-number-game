@@ -379,9 +379,9 @@ const LockGame = () => {
   }, [generateNew])
 
   return (
-    <div className='flex flex-col items-center justify-between h-screen w-full bg-[#262626] text-white'>
+    <div className='flex flex-col items-center justify-between h-screen w-full bg-[#262626] text-white overflow-y-auto'>
       <div className='intro-overlay'>
-        <h1 className='text-[48px]'>GUESS THE NUMBER</h1>
+        <h1 className='text-[clamp(28px,8vw,48px)]'>GUESS THE NUMBER</h1>
         <span>By Ibrahim Bagalwa</span>
       </div>
 
@@ -389,7 +389,7 @@ const LockGame = () => {
         {header}
       </div>
 
-      <div ref={lockRef} className='lock-animation relative mt-6'>
+      <div ref={lockRef} className='lock-animation relative mt-3 sm:mt-6'>
         <div className='lock-base absolute bottom-0 flex justify-center items-end'>
           {inputs.map((val, i) => (
             <input
@@ -401,7 +401,7 @@ const LockGame = () => {
                 inputRefs.current[i] = el
               }}
               placeholder='0'
-              className='bg-[#472d04] w-[45px] h-[45px] text-[40px] text-center rounded-[5px] mx-[5px] shadow-[0_5px_#00000057] placeholder-white/20'
+              className='bg-[#472d04] w-[clamp(32px,12.5vw,45px)] h-[clamp(32px,12.5vw,45px)] text-[clamp(22px,9vw,40px)] text-center rounded-[5px] mx-1 shadow-[0_5px_#00000057] placeholder-white/20'
               onChange={(e) => handleCodeInput(i, e.target.value)}
               onKeyDown={handleKeyDown}
               min={GAME_CONFIG.MIN_DIGIT}
@@ -412,7 +412,7 @@ const LockGame = () => {
         </div>
       </div>
 
-      <div className='hint-wrapper flex flex-wrap justify-around w-[500px] max-w-full text-center mt-4'>
+      <div className='hint-wrapper flex flex-wrap justify-around w-[500px] max-w-full text-center mt-2 sm:mt-4'>
         <Hint
           numbers={hints.twoCorrect}
           color='text-[#4CAF50]'
@@ -444,7 +444,7 @@ const LockGame = () => {
         ref={continueButtonRef}
         onClick={generateNew}
         disabled={!continueVisible}
-        className={`continue-button mt-6 ${
+        className={`continue-button mt-3 sm:mt-6 ${
           continueVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         aria-label='Generate new puzzle'
@@ -472,8 +472,8 @@ const LockGame = () => {
 
 const Hint: React.FC<HintComponentProps> = React.memo(
   ({ numbers, color, text }) => (
-    <div className='hint flex flex-col items-center my-[15px] mx-[22px]'>
-      <div className='hint-top text-[24px] bg-[#1b1b1b] rounded-[5px] py-[5px] px-[10px] mb-[5px]'>
+    <div className='hint flex flex-col items-center my-2 mx-3 sm:my-[15px] sm:mx-[22px]'>
+      <div className='hint-top text-[clamp(16px,5vw,24px)] bg-[#1b1b1b] rounded-[5px] py-[5px] px-[10px] mb-[5px]'>
         {numbers.join(' ')}
       </div>
       <span
